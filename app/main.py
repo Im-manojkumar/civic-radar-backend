@@ -18,6 +18,9 @@ app = FastAPI(
     title=settings.PROJECT_NAME,
     openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
+@app.get("/api/v1/health")
+def health_v1():
+    return {"status": "ok"}
 
 # CORS Middleware Setup
 if settings.BACKEND_CORS_ORIGINS:
